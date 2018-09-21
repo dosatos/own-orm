@@ -1,0 +1,6 @@
+.db
+.pyc
+todo.txt
+.idea/
+venv/
+py/
