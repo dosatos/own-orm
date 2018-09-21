@@ -1,1 +1,3 @@
-{}
+{
+  "tests/test_main.py::TestModel::()::test_char_field_success[yeldos-result0]": true
+}

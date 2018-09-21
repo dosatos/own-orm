@@ -8,5 +8,4 @@ __version__ = 'ORM Version 0.1'
 
 def create_engine(db_name):
     conn = sqlite3.connect(db_name)
-    print(glob.glob('*'))
     return conn
