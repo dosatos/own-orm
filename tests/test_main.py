@@ -7,8 +7,17 @@ from orm.core import models
 
 
 class User(models.Model):
+    __tablename__ = "user"
+
     name = models.CharField()
     email = models.EmailField()
+
+
+
+class BadUser(models.Model):
+    name = models.CharField()
+    email = models.EmailField()
+
 
 
 class TestModel():
@@ -20,6 +29,15 @@ class TestModel():
     def test_char_and_email_field_success(self, name, email, result):
         user = User(name=name, email=email)
         assert user.fields == result and user.name == name and user.email == email
+
+    def test_tablename_setup_success(self):
+        name, email = 'yeldos', 'yeldos@gmail.com'
+        user = User(name=name, email=email)
+
+    def test_tablename_is_missing(self):
+        name, email = 'yeldos', 'yeldos@gmail.com'
+        with pytest.raises(AttributeError):
+            user = BadUser(name=name, email=email)
 
 
 

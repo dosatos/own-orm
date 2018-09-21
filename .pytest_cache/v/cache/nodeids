@@ -1,4 +1,6 @@
 [
   "tests/test_main.py::TestModel::()::test_char_and_email_field_success[yeldos-hello@wrold.com-result0]",
+  "tests/test_main.py::TestModel::()::test_tablename_is_set_success",
+  "tests/test_main.py::TestModel::()::test_tablename_is_set_failure",
   "tests/test_main.py::TestORM::()::test_engine_created_success"
 ]

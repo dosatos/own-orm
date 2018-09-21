@@ -1,3 +1,4 @@
 {
-  "tests/test_main.py::TestModel::()::test_char_field_success[yeldos-result0]": true
+  "tests/test_main.py::TestModel::()::test_char_field_success[yeldos-result0]": true,
+  "tests/test_main.py::TestModel::()::test_tablename_is_set_failure[yeldos-hello@wrold.com-result0]": true
 }

@@ -1,6 +1,8 @@
 import re
 
 
+TABLE_MISSING_ERROR = "Please, specify the table name"
+
 
 class BaseField:
     def __init__(self):
@@ -44,6 +46,9 @@ class EmailField(CharField):
 
 class Model:
     def __init__(self, **kwargs):
+        if "__tablename__" not in [attr for attr in self.__class__.__dict__.keys()]:
+            raise AttributeError(TABLE_MISSING_ERROR)
+
         for attr in self.fields:
             setattr(self, attr, kwargs[attr])
 
