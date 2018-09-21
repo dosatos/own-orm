@@ -29,7 +29,8 @@ class Session:
         params = f"{', '.join([qmark for _ in range(len(instance.fields))])}"
         c.execute(f'INSERT INTO {instance.__tablename__} VALUES ({params})', instance.fields)
 
-
     def save(self):
         self.engine.commit()
+
+    def close(self):
         self.engine.close()

@@ -55,11 +55,13 @@ class TestORM:
     def test_session_bind_added(self, engine):
         session = manager.Session(bind=engine)
         assert session.engine == engine
+        session.close()
 
     def test_session_bind_added_through_configuration(self, engine):
         session = manager.Session()
         session.configure(bind=engine)
         assert session.engine == engine
+        session.close()
 
     def test_table_created_through_session_instance(self, engine):
         session = manager.Session(bind=engine)
@@ -71,6 +73,7 @@ class TestORM:
         c = engine.cursor()
         name = c.execute(f'SELECT name FROM {user.__tablename__}')
         assert user.name.lower() in name.fetchone()
+        session.close()
 
     def test_instance_added_through_session(self, engine):
         session = manager.Session(bind=engine)
@@ -82,6 +85,7 @@ class TestORM:
         c = engine.cursor()
         name = c.execute(f'SELECT name FROM {user.__tablename__}')
         assert user.name.lower() in name.fetchone()
+        session.close()
 
     #
     # def test_query_db(self):
